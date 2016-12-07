@@ -1,3 +1,6 @@
+<div>
+	<h3>Reminders</h3>
+
 	<ul>
 	{{#each model as |reminder|}}
 	<li class="spec-reminder-item">
@@ -7,3 +10,9 @@
 	</li>
 	{{/each}}
 </ul>
+
+{{outlet}}
+
+</div>
+
+<!-- still need to setup link-to -->
