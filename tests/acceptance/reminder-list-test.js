@@ -7,7 +7,7 @@ import Ember from 'ember';
 
 moduleForAcceptance('Acceptance | reminders list');
 
-test('viewing the homepage', function(assert) {
+test('viewing the homepage will redirect the user to "/reminders"', function(assert) {
   server.createList('reminder', 5);
 
   visit('/');
