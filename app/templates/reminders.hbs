@@ -1,9 +1,9 @@
 <div>
-	<h3>Reminders</h3>
+	<h2>Reminders</h2>
 
 	<ul>
 	{{#each model as |reminder|}}
-	<li>
+	<li class='reminder'>
 		<h3>{{#link-to 'reminders.reminder' reminder.id class="spec-reminder-item"}} {{reminder.title}} {{/link-to}}</h3>
 		<p>{{reminder.date}}</p>
 	</li>
@@ -13,7 +13,7 @@
 
 
 
-<button>
+<button >
 {{#link-to 'reminders.new' class="add-btn"}}Add New Reminder{{/link-to}}</button>
 </div>
 
