@@ -51,7 +51,7 @@ test("clicking the 'Add new reminder' renders input fields", function(assert) {
 test("should add a reminder on submit with valid input", function(assert) {
 	visit('/reminders/new');
 
-	fillIn('.input-title', 'title');
+	fillIn('.input-title', 'hello');
 	fillIn('.input-date', '12/08/2016');
 	fillIn('.input-notes', 'these are notes');
 
@@ -60,8 +60,6 @@ test("should add a reminder on submit with valid input", function(assert) {
 	andThen(function() {
 		assert.equal(currentURL(), '/reminders/new');
 		assert.equal(find('.reminder').length, 1, 'should show 1 reminder');
-		assert.equal(Ember.$('.spec-reminder-item').text().trim());
+		assert.equal(Ember.$('.spec-reminder-item').text().trim(), 'hello');
 	});
 });
-
-//get test running, ready for PR
