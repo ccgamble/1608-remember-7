@@ -1,6 +1,7 @@
 <div>
 	<h2>Reminders</h2>
 
+{{#if reminder}}
 	<ul>
 	{{#each model as |reminder|}}
 	<li class='reminder'>
@@ -10,11 +11,13 @@
 	{{/each}}
 </ul>
 
+{{else}}
+<p>Please add a reminder</p>
 
-
+{{/if}}
 
 <button >
-{{#link-to 'reminders.new' class="add-btn"}}Add New Reminder{{/link-to}}</button>
+{{#link-to 'reminders.new' class="add-btn"}}Add{{/link-to}}</button>
 </div>
 
 
