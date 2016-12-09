@@ -1,3 +1,3 @@
-export default function(server) {
-  server.createList('reminder', 5);
+export default function() {
+  // server.createList('reminder', 5);
 }
