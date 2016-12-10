@@ -10,6 +10,7 @@
 						{{/link-to}}
 					</h3>
 					<p>{{reminder.date}}</p>
+					{{#link-to 'reminders.edit' reminder.id class="spec-reminder-edit"}}<h4>Edit</h4>{{/link-to}}
 				</li>
 			{{/each}}
 	</ul>
