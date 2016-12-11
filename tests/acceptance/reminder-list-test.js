@@ -63,3 +63,13 @@ test("should add a reminder on submit with valid input", function(assert) {
 		assert.equal(Ember.$('.spec-reminder-item').text().trim(), 'hello');
 	});
 });
+
+test('viewing the homepage will reroute to /reminders and display a welcome page when there are zero reminders', function(assert) {
+	visit('/');
+
+	andThen(function() {
+		assert.equal(currentURL(), '/reminders');
+		assert.equal(Ember.$('.spec-reminder-item').length, 0);
+		assert.equal(find('.welcome-default').length, 1);
+	});
+});
