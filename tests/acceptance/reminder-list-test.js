@@ -73,3 +73,5 @@ test('viewing the homepage will reroute to /reminders and display a welcome page
 		assert.equal(find('.welcome-default').length, 1);
 	});
 });
+
+test('')
