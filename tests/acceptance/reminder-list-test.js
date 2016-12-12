@@ -74,4 +74,39 @@ test('viewing the homepage will reroute to /reminders and display a welcome page
 	});
 });
 
-test('')
+test('clicking the edit button will reroute to /edit and display edit form', function(assert) {
+	visit('/reminders/new');
+
+	fillIn('.input-title', 'hello');
+	fillIn('.input-date', '12/08/2016');
+	fillIn('.input-notes', 'these are notes');
+
+	click('.add-reminder-submit');
+	visit('/reminders');
+	click('.edit-button');
+
+	andThen(function() {
+		assert.equal(currentURL(), '/reminders/edit/1');
+		assert.equal(find('.edit-input').length, 3);
+	});
+});
+
+test('edits save on submit' function(assert) {
+	visit('/reminders/new');
+
+	fillIn('.input-title', 'hello');
+	fillIn('.input-date', '12/08/2016');
+	fillIn('.input-notes', 'these are notes');
+
+	click('.add-reminder-submit');
+	visit('/reminders');
+	click('.edit-button');
+
+	fillIn('.edit-title', 'hi');
+	click('.submit-edit');
+
+	andThen(function() {
+		assert.equal(currentURL(), '/reminders')
+		assert.equal(Ember.$('.reminder-title').text().trim(), 'hi');
+	})
+})

@@ -2,17 +2,17 @@
 <form class="edit-reminder" {{action 'editReminder' model on='submit'}}>
   <label>
     Title
-    {{input value=model.title class="edit-input input-title"}}
+    {{input value=model.title class="edit-input edit-title"}}
   </label>
   <label>
     Date
-    {{bootstrap-datepicker value=model.date  class="edit-input input-date"}}
+    {{bootstrap-datepicker value=model.date  class="edit-input edit-date"}}
   </label>
   <label>
     Notes
-    {{textarea value=model.notes class="edit-input input-notes"}}
+    {{textarea value=model.notes class="edit-input edit-notes"}}
   </label>
-  <button>
+  <button class="submit-edit">
 		{{#link-to 'reminders' class="edit-reminder-submit"}}
 		Submit
 		{{/link-to}}
