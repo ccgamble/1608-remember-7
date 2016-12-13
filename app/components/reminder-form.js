@@ -6,9 +6,9 @@ export default Ember.Component.extend({
 
   actions: {
     handleFormSubmit(model) {
-    model.date = model.date || new Date();
-		model.save();
-		this.sendAction();
+	    model.date = model.date || new Date();
+			model.save();
+			this.sendAction();
 	},
 	rollback(model){
 		if(model.get('hasDirtyAttributes')){
