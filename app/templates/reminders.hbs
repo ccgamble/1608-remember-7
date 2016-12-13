@@ -12,7 +12,8 @@
 					<p>{{reminder.date}}</p>
 						{{#link-to 'reminders.edit' reminder class="spec-reminder-edit"}}
 							<button class="edit-button">Edit</button>
-						{{/link-to}}
+							{{/link-to}}
+							<button class="delete-button" {{action 'handleRemove' model on="click"}}>{{#link-to 'reminders' }}Delete{{/link-to}}</button>
 				</li>
 			{{/each}}
 	</ul>
@@ -20,9 +21,9 @@
 		<p class="welcome-default">Welcome! Click 'add' to create a new reminder.</p>
 	{{/if}}
 
-	<button >
-		{{#link-to 'reminders.new' class="add-btn"}}Add{{/link-to}}
-	</button>
+
+		{{#link-to 'reminders.new' class="add-btn"}}<button>Add</button>{{/link-to}}
+
 </div>
 
 
