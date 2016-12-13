@@ -13,17 +13,14 @@
 						{{#link-to 'reminders.edit' reminder class="spec-reminder-edit"}}
 							<button class="edit-button">Edit</button>
 							{{/link-to}}
-							<button class="delete-button" {{action 'handleRemove' model on="click"}}>{{#link-to 'reminders' }}Delete{{/link-to}}</button>
+							<button class="delete-button" {{action 'handleRemove' reminder on="click"}}>{{#link-to 'reminders' }}Delete{{/link-to}}</button>
 				</li>
 			{{/each}}
 	</ul>
 	{{else}}
 		<p class="welcome-default">Welcome! Click 'add' to create a new reminder.</p>
 	{{/if}}
-
-
 		{{#link-to 'reminders.new' class="add-btn"}}<button>Add</button>{{/link-to}}
-
 </div>
 
 
