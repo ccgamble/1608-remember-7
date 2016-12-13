@@ -2,7 +2,7 @@
 	<h3 class="spec-reminder-title"> {{model.title}}</h3>
 	<p class="reminder-date"> {{model.date}}</p>
 	<p class="reminder-notes"> {{model.notes}}</p>
-	{{#link-to 'reminders' }}<button class="delete-buttton" {{action 'handleRemove' model on="click"}}>Delete</button>{{/link-to}}
+	{{#link-to 'reminders' }}<button class="individual-delete-button" {{action 'handleRemove' model on="click"}}>Delete</button>{{/link-to}}
 </section>
 
 {{outlet}}

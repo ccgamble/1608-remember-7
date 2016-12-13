@@ -5,10 +5,8 @@ export default Ember.Route.extend({
 	},
 	actions: {
 		handleRemove(model) {
-			console.log(model.id)
-			this.get('store').findRecord('reminder',  model.id).then((record) => {
-			 model.destroyRecord('reminder', model.id);
-		 });
+			let reminderToBeDeleted = this.get('store').peekRecord('reminder',  model.id);
+			 reminderToBeDeleted.destroyRecord('reminder', model.id);
+		 }
 	 }
-	}
 });

@@ -146,3 +146,36 @@ test('it renders visual cue when reminder is unsaved', function(assert) {
 		assert.equal(Ember.$('.unsaved').text().trim(), "Reminder is not saved!!!");
 	});
 });
+
+test('it can delete a reminder with the individual-delete-button and routes back to /reminders', function(assert) {
+  visit('/reminders/new');
+
+	fillIn('.input-title', 'hello');
+	fillIn('.input-date', '12/08/2016');
+	fillIn('.input-notes', 'these are notes');
+
+  click('.add-reminder-submit');
+  click('.delete-button');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/reminders');
+    assert.equal(find('.reminder').length, 0);
+  });
+});
+
+test('it can delete a reminder with the delete-button and routes back to /reminders', function(assert) {
+  visit('/reminders/new');
+
+	fillIn('.input-title', 'hello');
+	fillIn('.input-date', '12/08/2016');
+	fillIn('.input-notes', 'these are notes');
+
+  click('.add-reminder-submit');
+  click('.spec-reminder-title');
+  click('.delete-button');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/reminders');
+    assert.equal(find('.reminder').length, 0);
+  });
+});
