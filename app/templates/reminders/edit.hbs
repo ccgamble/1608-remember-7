@@ -1,0 +1,20 @@
+
+<form class="edit-reminder" {{action 'editReminder' model on='submit'}}>
+  <label>
+    Title
+    {{input value=model.title class="edit-input edit-title"}}
+  </label>
+  <label>
+    Date
+    {{bootstrap-datepicker value=model.date  class="edit-input edit-date"}}
+  </label>
+  <label>
+    Notes
+    {{textarea value=model.notes class="edit-input edit-notes"}}
+  </label>
+  <button class="submit-edit">
+		{{#link-to 'reminders' class="edit-reminder-submit"}}
+			Submit
+		{{/link-to}}
+	</button>
+</form>
