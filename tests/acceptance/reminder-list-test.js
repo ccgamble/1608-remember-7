@@ -91,7 +91,7 @@ test('clicking the edit button will reroute to /edit and display edit form', fun
 	});
 });
 
-test('edits save on submit' function(assert) {
+test('edits save on submit', function(assert) {
 	visit('/reminders/new');
 
 	fillIn('.input-title', 'hello');
