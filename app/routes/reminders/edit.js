@@ -5,7 +5,7 @@ export default Ember.Route.extend({
 	},
 	actions: {
 		handleFormSubmit() {
-			this.transitionTo('reminders')
+			this.transitionTo('reminders');
 		}
 	}
 });

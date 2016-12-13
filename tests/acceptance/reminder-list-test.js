@@ -19,14 +19,17 @@ test('viewing the homepage will redirect the user to "/reminders"', function(ass
 });
 
 test('clicking on an individual item', function(assert) {
-  server.createList('reminder', 5);
+	visit('/reminders/new');
+	fillIn('.input-title', 'hello');
+	fillIn('.input-date', '12/08/2016');
+	fillIn('.input-notes', 'these are notes');
+	click('.add-reminder-submit');
 
-  visit('/');
-  click('.spec-reminder-item:first');
+	click('.spec-reminder-item:first');
 
   andThen(function() {
     assert.equal(currentURL(), '/reminders/1');
-    assert.equal(Ember.$('.spec-reminder-item:first').text().trim(), Ember.$('.spec-reminder-title').text().trim());
+    assert.equal(Ember.$('.spec-reminder-item').text().trim(), 'hello');
   });
 });
 
@@ -58,7 +61,7 @@ test("should add a reminder on submit with valid input", function(assert) {
 	click('.add-reminder-submit');
 
 	andThen(function() {
-		assert.equal(currentURL(), '/reminders/new');
+		assert.equal(currentURL(), '/reminders');
 		assert.equal(find('.reminder').length, 1, 'should show 1 reminder');
 		assert.equal(Ember.$('.spec-reminder-item').text().trim(), 'hello');
 	});
@@ -87,7 +90,7 @@ test('clicking the edit button will reroute to /edit and display edit form', fun
 
 	andThen(function() {
 		assert.equal(currentURL(), '/reminders/edit/1');
-		assert.equal(find('.edit-input').length, 3);
+		assert.equal(find('.new-input').length, 3);
 	});
 });
 
@@ -102,11 +105,11 @@ test('edits save on submit', function(assert) {
 	visit('/reminders');
 	click('.edit-button');
 
-	fillIn('.edit-title', 'hi');
-	click('.submit-edit');
+	fillIn('.input-title', 'hi');
+	click('.add-reminder-submit');
 
 	andThen(function() {
-		assert.equal(currentURL(), '/reminders')
-		assert.equal(Ember.$('.reminder-title').text().trim(), 'hi');
-	})
-})
+		assert.equal(currentURL(), '/reminders');
+		assert.equal(Ember.$('.spec-reminder-title').text().trim(), 'hi');
+	});
+});
