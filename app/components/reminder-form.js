@@ -12,8 +12,8 @@ export default Ember.Component.extend({
 	},
 	rollback(model){
 		if(model.get('hasDirtyAttributes')){
-			model.rollbackAttributes()
+			model.rollbackAttributes();
+			}
 		}
-	}
   }
 });

@@ -113,3 +113,23 @@ test('edits save on submit', function(assert) {
 		assert.equal(Ember.$('.spec-reminder-title').text().trim(), 'hi');
 	});
 });
+
+test('can revert unsaved reminder when editing', function(assert) {
+	visit('/reminders/new');
+
+	fillIn('.input-title', 'hello');
+	fillIn('.input-date', '12/08/2016');
+	fillIn('.input-notes', 'these are notes');
+
+	click('.add-reminder-submit');
+	visit('/reminders');
+	click('.edit-button');
+
+	fillIn('.input-title', 'hi');
+	click('.revert-input');
+
+	andThen(function() {
+		assert.equal(currentURL(), '/reminders/edit/1');
+		assert.equal(Ember.$('.spec-reminder-title').text().trim(), 'hello');
+	});
+});
