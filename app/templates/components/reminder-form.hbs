@@ -14,4 +14,8 @@
 	<input type="submit" name="submit" value="Save" class=add-reminder-submit>
 </form>
 
+{{#if edit}}
+	<button class="revert-input {{if reminder.hasDirtyAttributes "enabled"}}" {{action "rollback" model on="click"}}>Revert</button>
+{{/if}}
+
 {{outlet}}
