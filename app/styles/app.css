@@ -1,3 +1,8 @@
 .active {
   background-color: papayawhip;
 }
+
+.unsaved {
+	color: red;
+	font-weight: bold;
+}

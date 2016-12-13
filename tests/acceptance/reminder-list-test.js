@@ -133,3 +133,16 @@ test('can revert unsaved reminder when editing', function(assert) {
 		assert.equal(Ember.$('.spec-reminder-title').text().trim(), 'hello');
 	});
 });
+
+test('it renders visual cue when reminder is unsaved', function(assert) {
+	visit('/reminders/new');
+
+	fillIn('.input-title', 'hello');
+	fillIn('.input-date', '12/08/2016');
+	fillIn('.input-notes', 'these are notes');
+
+	andThen(function() {
+		assert.equal(find('.unsaved').length, 1);
+		assert.equal(Ember.$('.unsaved').text().trim(), "Reminder is not saved!!!");
+	});
+});

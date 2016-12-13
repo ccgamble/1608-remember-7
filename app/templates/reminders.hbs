@@ -2,11 +2,16 @@
 	{{#if model}}
 		<ul class="reminder-list">
 			{{#each model as |reminder|}}
+			<span class="unsaved">{{if reminder.hasDirtyAttributes "Reminder is not saved!!!"}}</span>
+
 				<li class='reminder'>
+					<div>
+					</div>
 					<h3 class="spec-reminder-title">
 						{{#link-to 'reminders.reminder' reminder class="spec-reminder-item"}}
 							{{reminder.title}}
 						{{/link-to}}
+
 					</h3>
 					<p>{{reminder.date}}</p>
 						{{#link-to 'reminders.edit' reminder class="spec-reminder-edit"}}
@@ -22,6 +27,7 @@
 	<button >
 		{{#link-to 'reminders.new' class="add-btn"}}Add{{/link-to}}
 	</button>
+
 </div>
 
 
