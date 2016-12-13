@@ -1,5 +1,7 @@
-<article class="active">
-  <h2 class="spec-reminder-title">{{model.title}}</h2>
-  <div>{{model.date}}</div>
-  <p>{{model.notes}}</p>
-</article>
+<section class="spec-individual-reminder-item">
+	<h3 class="reminder-title"> {{model.title}}</h3>
+	<p class="reminder-date"> {{model.date}}</p>
+	<p class="reminder-notes"> {{model.notes}}</p>
+</section>
+
+{{outlet}}

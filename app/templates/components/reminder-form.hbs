@@ -1,0 +1,17 @@
+<form class="reminder-form" {{action 'handleFormSubmit' model on="submit"}}>
+  <label>
+    Title
+    {{input value=model.title type="text" class="new-input input-title"}}
+  </label>
+  <label>
+    Date
+    {{bootstrap-datepicker value=model.date format="mm.dd.yy"  class="new-input input-date"}}
+  </label>
+  <label>
+    Notes
+    {{textarea value=model.notes class="new-input input-notes"}}
+  </label>
+	<input type="submit" name="submit" value="Save" class=add-reminder-submit>
+</form>
+
+{{outlet}}
