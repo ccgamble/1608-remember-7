@@ -12,15 +12,19 @@
 					<p>{{reminder.date}}</p>
 						{{#link-to 'reminders.edit' reminder class="spec-reminder-edit"}}
 							<button class="edit-button">Edit</button>
-							{{/link-to}}
-							{{#link-to 'reminders' }}<button class="delete-button" {{action 'handleRemove' reminder on="click"}}>Delete</button>{{/link-to}}
+						{{/link-to}}
+						{{#link-to 'reminders' }}
+							<button class="delete-button" {{action 'handleRemove' reminder on="click"}}>Delete</button>
+						{{/link-to}}
 				</li>
 			{{/each}}
-	</ul>
+		</ul>
 	{{else}}
 		<p class="welcome-default">Welcome! Click 'add' to create a new reminder.</p>
 	{{/if}}
-		{{#link-to 'reminders.new' class="add-btn"}}<button>Add</button>{{/link-to}}
+	{{#link-to 'reminders.new' class="add-btn"}}
+		<button>Add</button>
+	{{/link-to}}
 </div>
 
 
